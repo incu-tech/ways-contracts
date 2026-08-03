@@ -1,0 +1,12 @@
+apiVersion: ways/v1alpha1
+kind: SlotContract
+metadata:
+  name: ways.dev/error-monitoring
+  version: 1.0.0
+  displayName: Error monitoring
+  description: Error/exception monitoring capability — read issues and events, resolve.
+spec:
+  operations:
+    - { name: read-issues, description: List error/issue groups. }
+    - { name: read-event, description: Read a specific error event/trace. }
+    - { name: resolve, description: Mark an issue resolved/ignored. }

@@ -1,0 +1,12 @@
+apiVersion: ways/v1alpha1
+kind: SlotContract
+metadata:
+  name: ways.dev/sca
+  version: 1.0.0
+  displayName: Dependency scanning (SCA)
+  description: Software-composition analysis — find known vulnerabilities in declared dependencies.
+spec:
+  operations:
+    - { name: scan-dependencies, description: Scan the dependency manifest/lockfile for known vulnerabilities. }
+    - { name: read-advisories, description: Read the advisories found, with severity and affected range. }
+    - { name: suggest-upgrade, description: Report the version that resolves an advisory, when one exists. }

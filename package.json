@@ -1,0 +1,15 @@
+{
+  "name": "ways-contracts",
+  "private": true,
+  "description": "The canonical ways.dev contract catalog — SlotContract + Binding artifacts for ways.",
+  "type": "module",
+  "scripts": {
+    "validate": "ways validate contracts/*.yaml bindings/*.yaml",
+    "audit": "node scripts/audit.mjs",
+    "test": "npm run validate && npm run audit"
+  },
+  "devDependencies": {
+    "@incu/ways": "^0.5.0"
+  },
+  "license": "MIT"
+}

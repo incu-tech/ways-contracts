@@ -1,0 +1,12 @@
+apiVersion: ways/v1alpha1
+kind: SlotContract
+metadata:
+  name: ways.dev/issue-tracker
+  version: 1.0.0
+  displayName: Issue tracker
+  description: Issue-tracking capability — create, link, and read issues.
+spec:
+  operations:
+    - { name: create-issue, description: Create a new issue/ticket. }
+    - { name: link-issue, description: Link work (branch/PR) to an issue. }
+    - { name: read-issue, description: Read issue details and status. }

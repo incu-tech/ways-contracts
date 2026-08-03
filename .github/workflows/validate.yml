@@ -1,0 +1,21 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      # Each artifact is schema-valid on its own …
+      - run: npx ways validate contracts/*.yaml bindings/*.yaml
+      # … and the catalog is coherent as a whole (see scripts/audit.mjs).
+      - run: npm run audit

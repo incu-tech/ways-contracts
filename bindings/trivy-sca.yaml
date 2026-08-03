@@ -1,0 +1,17 @@
+apiVersion: ways/v1alpha1
+kind: Binding
+metadata:
+  name: trivy-sca
+  version: 1.0.0
+  description: Satisfy ways.dev/sca with Trivy.
+spec:
+  contract: ways.dev/sca@1
+  impl: trivy
+  coversOperations: [scan-dependencies, read-advisories]
+  requires:
+    cli:
+      - name: trivy
+        check: trivy --version
+        install: brew install trivy
+        required: true
+        reason: Scans the lockfile/filesystem for known vulnerabilities.
