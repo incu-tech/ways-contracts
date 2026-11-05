@@ -30,6 +30,7 @@ ways contracts          # what resolved, from where, and which impls can satisfy
 |---|---|---|
 | `ways.dev/sast@1` | scan-code, read-findings, ignore-finding | `snyk`, `sonarqube`, `semgrep`\* |
 | `ways.dev/sca@1` | scan-dependencies, read-advisories, suggest-upgrade | `snyk`, `npm-audit`, `trivy`\*, `osv-scanner`\* |
+| `ways.dev/code-quality@1` | analyze-code, read-issues, read-quality-gate | `sonarqube` |
 | `ways.dev/vcs-host@1` | read-repo, open-pr, pin-ref | `github`, `gitlab` |
 | `ways.dev/issue-tracker@1` | create-issue, link-issue, read-issue | `linear`, `github-issues` |
 | `ways.dev/error-monitoring@1` | read-issues, read-event, resolve | `sentry` |

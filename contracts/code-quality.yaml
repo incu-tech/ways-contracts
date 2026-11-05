@@ -1,0 +1,12 @@
+apiVersion: ways/v1alpha1
+kind: SlotContract
+metadata:
+  name: ways.dev/code-quality
+  version: 1.0.0
+  displayName: Code quality analysis
+  description: Static code-quality analysis — code smells, maintainability and duplication, distinct from vulnerability scanning (ways.dev/sast).
+spec:
+  operations:
+    - { name: analyze-code, description: Run static quality analysis over the working tree or a diff. }
+    - { name: read-issues, description: Read quality issues found (code smells, duplications), with severity and location. }
+    - { name: read-quality-gate, description: Read the pass/fail quality-gate verdict for the analysis. }

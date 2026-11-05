@@ -1,0 +1,25 @@
+apiVersion: ways/v1alpha1
+kind: Binding
+metadata:
+  name: sonarqube-code-quality
+  version: 1.0.0
+  description: Satisfy ways.dev/code-quality with SonarQube / SonarCloud via sonar-scanner.
+spec:
+  contract: ways.dev/code-quality@1
+  impl: sonarqube
+  coversOperations: [analyze-code, read-issues, read-quality-gate]
+  requires:
+    cli:
+      - name: sonar-scanner
+        check: sonar-scanner --version
+        install: 'brew install sonar-scanner  (or the official Docker image)'
+        required: true
+        reason: Submits the analysis to the SonarQube server.
+    env:
+      - name: SONAR_TOKEN
+        secret: true
+        required: true
+        reason: Authenticates the analysis submission.
+      - name: SONAR_HOST_URL
+        required: false
+        reason: Self-hosted server URL; unset means SonarCloud.
